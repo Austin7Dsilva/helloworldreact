@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Options from "./components/Options";
+import Output from "./components/Output";
 import './App.css';
 
 const App = () =>{
@@ -9,12 +10,12 @@ const App = () =>{
   const [includeHtml, setIncludeHtml] = useState("Yes");
 
   useEffect(() => {
-    const url = 'https://baconipsum.com/api/?type=all-meat&paras=1&start-with-lorem=1';
+    const url = `https://baconipsum.com/api/?type=all-meat&paras=${inputValue}&start-with-lorem=1`;
 
     fetch(url)
     .then(res => res.json()) 
     .then(data => setParagraphs(data))
-  }, [])
+  }, [inputValue]);
   
 
   return(
@@ -32,6 +33,7 @@ const App = () =>{
             tag={tag}
             setTag={setTag}
           />
+          <Output paragraphs={paragraphs} tag={tag} includeHtml={includeHtml} />
         </div>
       </div>
   );

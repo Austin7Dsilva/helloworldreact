@@ -1,15 +1,8 @@
 import React from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Options = (props) => {
     const { paragraphs, includeHtml, setIncludeHtml, inputValue, setInputValue, tag, setTag } = props; 
-
-    paragraphs={paragraphs}
-    includeHtml={includeHtml}
-    setIncludeHtml={setIncludeHtml}
-    inputValue={inputValue}
-    setInputValue={setInputValue}
-    tag={tag}
-    setTag={setTag}
 
     return (
         <div className="options">
@@ -17,11 +10,11 @@ const Options = (props) => {
                 <div className="optionsContainer">
                     <div className="paragraphs">
                         <p> Paragraphs: </p>
-                        <input type="number" min="1" max="10"  value={inputValue}/>
+                        <input type="number" min="1" max="10"  value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
                     </div>
                     <div className="tags">
                         <p>Tags: </p>
-                        <select>
+                        <select defaultValue={tag} onChange={(e) => setTag(e.target.value)} >
                             <option value="p">&lt;p&gt;</option>
                             <option value="p">&lt;h1&gt;</option>
                             <option value="p">&lt;h2&gt;</option>
@@ -34,7 +27,7 @@ const Options = (props) => {
                     </div>
                     <div className="include">
                         <p>Include HTML: </p>
-                        <select>
+                        <select defaultValue={includeHtml} onChange={(e) => setIncludeHtml(e.target.value)} >
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -42,10 +35,13 @@ const Options = (props) => {
                 </div>
             </div>
             <div className="copy">
-                <p>Copy to Clipboard</p>
+                <CopyToClipboard text={paragraphs.map(sentence => includeHtml === "Yes" ? `<${tag}>${sentence}</${tag}>` : sentence)} >
+                    <button>Copy to Clipboard</button>
+                </CopyToClipboard>
             </div>
         </div>
     );
 };
 
 export default Options;
+
