@@ -11,12 +11,16 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 0;
+  margin-top: 5%;
+  opacity: 0.8;
 }
 
 /* Body Styles */
 
 body {
-  background: #080e26;
+  background: url(https://ik.imagekit.io/ugdlmxlzt/bg_bggenerator_com.jpg?updatedAt=1686049711066);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Title Styles */
@@ -26,7 +30,8 @@ body {
   padding: 26px 0;
   color: #fff;
   text-align: center;
-  background: #3c4773;
+  background: #8866d7;
+  border-radius: 20px;
 }
 
 /* Options Styles */
@@ -53,7 +58,7 @@ body {
 
 .options .wrapper .optionsContainer p {
   margin-bottom: 10px;
-  color: #fff;
+  color: black;
   font-weight: 400;
   font-size: 17px;
   letter-spacing: 1.2px;
