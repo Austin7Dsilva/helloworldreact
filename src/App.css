@@ -180,4 +180,13 @@ body {
   .title h1{
     font-size: 1rem;
   }
+  .paragraphs input{
+    text-align: center;
+  }
+  .tags select{
+    text-align: center;
+  }
+  .include select{
+    text-align: center;
+  }
 }
